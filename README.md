@@ -24,4 +24,6 @@ by ignoring script tags with express-sanitizer
 
 ![screenshot](./public/Blog_App.jpg)
 
-
+## todo
+add error handling 
+add tests
