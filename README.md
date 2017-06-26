@@ -1,9 +1,7 @@
 # Node RESTful api reference app
 
-### express
 ### mongoose
-### semantic ui
-html framwork
+### semantic ui html framework
 ### npm method-override
 allows forms to accept PUT and DELETE methods with the following sintax
 ```

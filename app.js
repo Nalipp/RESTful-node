@@ -23,12 +23,12 @@ var blogSchema = new mongoose.Schema({
 
 var Blog = mongoose.model("Blog", blogSchema);
 
-app.get('/', function(req, res) {
+app.get('/', (req, res) => {
   res.redirect('/blogs');
 });
 
-app.get('/blogs', function(req, res) {
-  Blog.find({}, function(err, blogs) {
+app.get('/blogs', (req, res) => {
+  Blog.find({}, (err, blogs) => {
     if (err) {
       console.log(err); 
       res.redirect('/');
@@ -38,26 +38,26 @@ app.get('/blogs', function(req, res) {
   })
 });
 
-app.get('/blogs/blog-new', function(req, res) {
-  res.render('blog-new');
+app.get('/blogs/new', (req, res) => {
+  res.render('new');
 });
 
-app.post('/blogs', function(req, res) {
+app.post('/blogs', (req, res) => {
   req.body.blog.body = req.sanitize(req.body.blog.body);
-  Blog.create(req.body.blog, function(err, newBlog) {
+  Blog.create(req.body.blog, (err, newBlog) => {
     if (err) {
       console.log(err);
-      res.redirect('/blogs/blog-new');
+      res.redirect('/blogs/new');
     } else {
       res.redirect('/blogs');
     }
   });
 });
 
-app.get('/blogs/:id', function(req, res) {
+app.get('/blogs/:id', (req, res) => {
   console.log('getting blogs/id');
   console.log(req.params.id);
-  Blog.findById(req.params.id, function(err, blog) {
+  Blog.findById(req.params.id, (err, blog) => {
     if (err) {
       console.log(err); 
       res.redirect('/blogs');
@@ -67,21 +67,21 @@ app.get('/blogs/:id', function(req, res) {
   });
 });
 
-app.get('/blogs/:id/edit', function(req, res) {
-  Blog.findById(req.params.id, function(err, result) {
+app.get('/blogs/:id/edit', (req, res) => {
+  Blog.findById(req.params.id, (err, result) => {
     if (err) {
       console.log(err); 
       res.redirect('/blogs');
     } else {
       console.log('yes it is getting and not an error');
-      res.render('blog-edit', {blog: result});
+      res.render('edit', {blog: result});
     }
   });
 });
 
-app.put('/blogs/:id', function(req, res) {
+app.put('/blogs/:id', (req, res) => {
   req.body.blog.body = req.sanitize(req.body.blog.body);
-  Blog.findByIdAndUpdate(req.params.id, req.body.blog, function(err, result) {
+  Blog.findByIdAndUpdate(req.params.id, req.body.blog, (err, result) => {
     if (err) {
       console.log(err); 
       res.redirect('/blogs');
@@ -91,8 +91,8 @@ app.put('/blogs/:id', function(req, res) {
   });
 });
 
-app.delete('/blogs/:id', function(req, res) {
-  Blog.findByIdAndRemove(req.params.id, function(err, result) {
+app.delete('/blogs/:id', (req, res) => {
+  Blog.findByIdAndRemove(req.params.id, (err, result) => {
     if (err) {
       console.log(err); 
       res.redirect('/blogs');
@@ -102,4 +102,4 @@ app.delete('/blogs/:id', function(req, res) {
   });
 });
 
-app.listen(3000, function() { console.log('up and runnon on localhost 3000') });
+app.listen(3000, () => { console.log('up and runnon on localhost 3000') });
