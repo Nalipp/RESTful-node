@@ -8,7 +8,7 @@ body-parser allows you acess a form object wich can be created in a form using t
 
 name="blog[title]"
 
-this places each form element inside of an object
+this places each form element inside of an object and allows us to access all of the values simultaneously 
 
 instead of accesing the title : req.body.title
 we can access the blog object : req.body.blog.title 
