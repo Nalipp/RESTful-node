@@ -16,7 +16,7 @@ instead of accesing the title : req.body.title
 we can access the blog object : req.body.blog.title 
 
 the entire object is avaliable at req.body.blog
-so it can easily be passed to the database through mongoose to with req.body.blog
+so it can easily be passed to the database through mongoose with req.body.blog
 
 example: 
 Blog.create(req.body.blog)
@@ -39,6 +39,16 @@ ejs allows you to read user submited html and script data in the browser
 block users from injecting scripts in the page 
 by ignoring script tags with express-sanitizer 
 
+```
+var expressSanitizer = require('express-sanitizer');
+```
+```
+app.use(expressSanitizer());   // this needs to be placed after body parser middleware
+```
+```
+req.body.blog.body = req.sanitize(req.body.blog.body);   // removes script tags that may have bee submited through a form
+
+```
 ## todo
 add error handling 
 add tests
