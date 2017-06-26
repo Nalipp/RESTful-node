@@ -6,11 +6,11 @@
 ### semantic ui html framework
 ### body-parser 
 <input type="text" name="blog[title]"> 
-body-parser allows you acess a form object wich can be created in a form using the following syntax
+body-parser allows you acess a form object which can be created in a form using the following syntax
 
 name="blog[title]"
 
-this places each form element inside of an object and allows us to access all of the values simultaneously 
+this places each form element inside of an object and allows access all of the values simultaneously 
 
 instead of accesing the title : req.body.title
 we can access the blog object : req.body.blog.title 
