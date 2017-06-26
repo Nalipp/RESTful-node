@@ -2,6 +2,23 @@
 
 ### mongoose
 ### semantic ui html framework
+### body-parser 
+<input type="text" name="blog[title]"> 
+body-parser allows you acess a form object wich can be created in a form using the following syntax
+
+name="blog[title]"
+
+this places each form element inside of an object
+
+instead of accesing the title : req.body.title
+we can access the blog object : req.body.blog.title 
+
+the entire object is avaliable at req.body.blog
+so it can easily be passed to the database through mongoose to with req.body.blog
+
+example: 
+Blog.create(req.body.blog)
+
 ### npm method-override
 allows forms to accept PUT and DELETE methods with the following sintax
 ```
