@@ -1,5 +1,7 @@
 # Node RESTful api reference app
 
+![screenshot](./public/Blog_App.jpg)
+
 ### mongoose
 ### semantic ui html framework
 ### body-parser 
@@ -36,8 +38,6 @@ ejs allows you to read user submited html and script data in the browser
 ```
 block users from injecting scripts in the page 
 by ignoring script tags with express-sanitizer 
-
-![screenshot](./public/Blog_App.jpg)
 
 ## todo
 add error handling 
